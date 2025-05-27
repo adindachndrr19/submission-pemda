@@ -2,7 +2,7 @@
 
 ## Domain Proyek: Prediksi Harga Mobil Bekas
 
-![image](https://github.com/user-attachments/assets/8991718b-7ea3-4fbc-a2ed-802a9ee3b983)
+![image]([https://github.com/user-attachments/assets/8991718b-7ea3-4fbc-a2ed-802a9ee3b983](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/jual_mobil.jpeg))
 
 ### Latar Belakang
 

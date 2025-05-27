@@ -72,15 +72,15 @@ Tabel berikut menunjukkan fitur yang tersedia dan penjelasannya:
 * Nilai di kolom Doors tidak konsisten, misalnya "04-May", perlu distandarisasi menjadi angka jumlah pintu yang valid.
 * Distribusi data Price menunjukkan adanya skewness, sehingga transformasi logaritmik dapat digunakan untuk mengurangi kemiringan distribusi dan meningkatkan stabilitas model.
 
-![image](https://github.com/user-attachments/assets/fa89b0dc-7685-49cf-852d-a3785268d92a)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar2.jpg)
 
 Dataset tidak memiliki nilai yang hilang.
 
-![image](https://github.com/user-attachments/assets/47ab3953-64b0-4539-8d44-5bb4c536abfa)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar3.jpg)
 
 Terdapat 313 data duplikat. Semua kolom berisi tipe data objek, integer, dan float dengan total 19.237 baris data valid.
 
-![image](https://github.com/user-attachments/assets/d453b9c5-e7a9-47f9-aff1-60d10b1856e3)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar4.jpg)
 
 Output fungsi df.nunique() menunjukkan jumlah nilai unik pada setiap kolom. Contohnya, kolom ID memiliki 18.924 nilai unik, menandakan hampir semua entri berbeda. Kolom Price memiliki 2.315 variasi harga. Manufacturer dan Model memiliki 65 dan 1.590 nilai unik, menunjukkan ragam merek dan tipe mobil yang luas. Kolom dengan variasi terbatas misalnya Leather interior (2 kategori) dan Wheel (2 posisi). Fuel type (7 kategori) dan Color (16 warna) memiliki variasi menengah. Informasi ini berguna untuk memahami keragaman data sebelum pemodelan.
 
@@ -94,7 +94,7 @@ Ringkasan statistik dari df.describe() menunjukkan:
 * Airbags bervariasi dari 0 sampai 16 dengan rata-rata sekitar 6.
   Statistik ini memberikan gambaran tentang penyebaran dan anomali pada data numerik.
 
-![image](https://github.com/user-attachments/assets/8af1b168-1516-4c12-977d-dc1cfa7856dd)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar5.jpg)
 
 Output untuk kategori unik dalam fitur kategorikal memperlihatkan variasi data sebagai berikut:
 
@@ -113,7 +113,7 @@ Output untuk kategori unik dalam fitur kategorikal memperlihatkan variasi data s
 * Mileage mengandung jarak tempuh dalam format string seperti '125,000 km'.
   Pemahaman ini penting sebelum proses encoding dan transformasi data.
 
-![image](https://github.com/user-attachments/assets/ac126f25-a970-4586-8f94-6f90f5a8482f)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar6.jpg)
 
 Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihkan dan siap untuk proses selanjutnya.
 
@@ -127,12 +127,12 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
 * **Duplikasi Dataset**
   Salinan data dibuat terlebih dahulu agar data asli tetap utuh saat proses persiapan data berlangsung.
 
-![image](https://github.com/user-attachments/assets/f5766bcd-b61a-48da-af4a-319dbbc03621)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar7.jpg)
 
 * **Menghilangkan Data Duplikat**
   Pada tahap ini, data yang memiliki baris duplikat dihapus menggunakan fungsi `drop_duplicates()`. Proses ini penting agar setiap record dalam dataset unik dan menghindari bias akibat pengulangan data. Setelah pembersihan, jumlah data tetap 18.924 baris, menunjukkan tidak ada baris yang sama persis. Tahap ini merupakan bagian dari pra-pemrosesan untuk memastikan kualitas data yang dipakai.
 
-![image](https://github.com/user-attachments/assets/1c610e0a-8f3c-4959-af1f-02f9c79387e4)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar8.jpg)
 
 * **Pembersihan dan Transformasi Data**
 
@@ -146,7 +146,7 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
   Nilai pada `Doors` yang berupa format teks seperti '02-Mar' dan '04-May' dikonversi ke angka menggunakan pemetaan, sementara nilai yang tidak dikenali diasumsikan 4 pintu.
   Terakhir, `Leather interior` diubah menjadi nilai numerik biner: 1 untuk 'Yes' dan 0 untuk 'No'.
 
-![image](https://github.com/user-attachments/assets/b4a57799-c3c5-4bb8-bea0-fcac56eaf2ae)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar9.jpg)
 
 * **Pembuatan Fitur Baru dan Normalisasi**
 
@@ -161,7 +161,7 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
   Untuk menyederhanakan kategori, kolom **`Manufacturer`** dikelompokkan menjadi 10 merek teratas, sisanya diberi label `'Other'`.
   Fitur **`Fuel_Efficiency_Proxy`** dibuat sebagai perbandingan usia mobil dengan volume mesin untuk menggambarkan efisiensi bahan bakar. Nilai ekstrem dan kosong diatasi serupa fitur sebelumnya.
 
-  ![image](https://github.com/user-attachments/assets/99bdd5d0-b561-42a5-a8e0-658318f832fa)
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar10.jpg)
 
 * **Standarisasi, Transformasi Target, dan Encoding**
 
@@ -173,7 +173,7 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
 
   Fitur kategori seperti `Manufacturer`, `Fuel type`, dan `Gear box type` diubah menjadi variabel dummy (one-hot encoding), dengan `drop_first=True` untuk menghindari multikolinearitas. Ini membuat data siap dipakai dalam algoritma machine learning berbasis numerik.
 
-  ![image](https://github.com/user-attachments/assets/5952ba27-f078-42ad-b5e8-426d216915fb)
+  ![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar11.jpg)
 
 * **Pembagian Data**
 
@@ -185,7 +185,7 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
   Nama kolom pada dataset hasil split dibersihkan dari karakter-karakter yang tidak diperbolehkan seperti `[]` dan `<>` agar tidak mengganggu proses modeling atau penyimpanan data.
   Ukuran akhir dataset untuk training dan testing serta jumlah fitur setelah encoding ditampilkan sebagai verifikasi suksesnya pembagian data.
 
-  ![image](https://github.com/user-attachments/assets/43a8cf90-a3de-488d-b27c-894bc7542313)
+  ![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar12.jpg)
 
 ---
 
@@ -197,7 +197,7 @@ Contoh lima baris pertama data menunjukkan berbagai atribut yang sudah dibersihk
 
 Kamu menggunakan tiga jenis model regresi populer untuk memprediksi harga mobil (atau smartphone, sesuaikan konteksmu):
 
----
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar13.jpg)
 
 ### Model 1: Linear Regression
 
@@ -251,8 +251,7 @@ Kamu menggunakan tiga jenis model regresi populer untuk memprediksi harga mobil 
 ---
 
 ## Latih dan Evaluasi Model
-
-Pada tahap ini, kamu melakukan:
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar14.jpg)
 
 * **Training:**
   Melatih tiap model menggunakan data pelatihan (`X_train`, `y_train`).
@@ -337,7 +336,7 @@ Berikut rangkuman lengkap dan terstruktur dari bagian **Tuning dan Optimasi**, *
 ---
 
 ## Tuning dan Optimasi Hyperparameter
-
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar15.jpg)
 ### Random Forest
 
 * **Metode:** GridSearchCV dengan cross-validation (cv=2), metrik evaluasi: R².
@@ -371,7 +370,7 @@ Berikut rangkuman lengkap dan terstruktur dari bagian **Tuning dan Optimasi**, *
 ---
 
 ## Feature Importance (XGBoost)
-
+![image](https://github.com/adindachndrr19/submission-pemda/blob/main/assets/gambar_grafik.jpg)
 * Visualisasi menunjukkan fitur-fitur yang paling berpengaruh terhadap prediksi harga (log(Price)).
 * Contoh insight: fitur seperti **Gear box type\_Tiptronic** memiliki kontribusi signifikan.
 * **Manfaat:**
